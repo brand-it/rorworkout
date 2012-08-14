@@ -1,0 +1,19 @@
+
+<!-- Not used but the system -->
+<div>
+	<div>
+		<%= @user.full_name%>, please confirm your Ruby on Rails workout account to continue using our services.
+	</div>
+	<h3><%= link_to "Ruby on Rails Workout", root_url %></h3>
+	<div>
+		<p>To get started, please <%= link_to "click here", confirm_account_url(@user.perishable_token) %> to confirm your email address.</p>
+		<p>If the above link does not work, try copying and pasting the following address into your browser: <%= confirm_account_url(@user.perishable_token) %></p>
+		<p>Thank you for using Ruby on Rails workout! </p>
+		<p>
+			-- The Brandt Team
+		</p>
+	<div/>
+	<div>
+		 Created By <%= link_to "Brandt Lareau", "http://www.facebook.com/brandtlareau" %>
+	</div>
+</div>

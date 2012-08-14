@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rorworkout</title>
+  <title>RoR Exercise </title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div id="container">
+		<div id="header">
+			<h1>
+				RoR Exercise
+			</h1>
+		</div>
+		<div id="navigation">
+			
+			<ul>
+				<li><%= link_to "Welcome", welcome_path %></li>
+				<% if logged_in? %>
+					<li><%= link_to current_user.full_name, account_path %></li>
+					<li><%= link_to "Logout", logout_path %>
+				<% else %>
+					<li><%= link_to "Login", login_path %></li>
+					<li><%= link_to "Signup", signup_path %></li>
+				<% end %>
 
-<%= yield %>
+			</ul>
+		</div>
+		<div id="content-container">
+			<%= flash_notifier %>
+			<div id="content">
+				
+				<%= yield %>
+			</div>
+			<div id="aside">
+				<%= yield :aside %>
+			</div>
+			<div id="footer">
+				Created by <%= link_to "Brandt Lareau", "http://www.facebook.com/brandtlareau", :target => "blank" %>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>

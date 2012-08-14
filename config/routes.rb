@@ -1,4 +1,24 @@
 Rorworkout::Application.routes.draw do
+  
+  resource :welcome
+  
+  
+  # User login and other user related information
+  resources :user_sessions
+  resource :account do
+    collection do
+      get "password_reset"
+      post 'send_password_reset'
+      post "update_password"
+    end
+  end
+  
+  match "login" => "user_sessions#new", :as => "login"
+  match 'logout', :to => 'user_sessions#destroy', :as => "logout"
+  
+  match 'signup', :to => 'accounts#new', :as => "signup"
+  match "/account/edit_password/:perishable_token" => "accounts#edit_password", :as => "edit_password"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +68,7 @@ Rorworkout::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'welcomes#show'
 
   # See how all your routes lay out with "rake routes"
 

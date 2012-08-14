@@ -1,0 +1,21 @@
+<%= form_for @user_session do |f| %>
+	<div class="input">
+		<%= f.label(:email, "Email", :hide_errors => true) %>
+		<%= f.text_field :email, :class => "text-input", :id => :username, :placeholder => "Email", :required => true %>
+		<!-- <input id="username" type="text" placeholder="Username" autofocus="" required=""> -->
+	</div>
+	<div class="input">
+		<%= f.label(:password, "Password", :hide_errors => true) %>
+		<%= f.password_field :password, :class => "text-input",:placeholder => "Password",  :required => true %>
+	</div>
+	<div id="remember-password" class="input">
+  		<%= f.check_box :remember_me, :class => :check_input %> remember me
+	</div>
+	<div id="options">
+		<%= link_to "", password_reset_account_path, :class => "reset_password" %>
+	</div>
+	<%= f.submit "Login", :class => :button %>
+<% end %>
+
+
+<%= set_focus("username") %>

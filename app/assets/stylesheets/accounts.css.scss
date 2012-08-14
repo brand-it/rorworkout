@@ -1,0 +1,23 @@
+// Place all the styles related to the accounts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#options a{
+	display: inline-block;
+	height: 29px;
+	width: 107px;
+}
+
+#options {
+	font-size: 12px;
+	float: right;
+}
+
+#options .reset_password {
+	background: url(password_reset.png) no-repeat;
+}
+
+#options .reset_password:hover {
+	background: url(password_reset_hover.png) no-repeat;
+	
+}

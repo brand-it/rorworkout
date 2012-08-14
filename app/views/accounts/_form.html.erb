@@ -1,0 +1,26 @@
+
+<%= errors(@user) %>
+<div class="input">
+	<%= form.label :email %>
+	<%= form.text_field :email, :type => "email", :class => 'text-input small-input', :required => true, :placeholder => "Email"%>
+	
+</div>
+<div class="input">
+	<%= form.label :password, form.object.new_record? ? nil : "Change password" %>
+	<%= form.password_field :password, :class => 'text-input small-input', :placeholder => "Password" %>
+</div>
+<div class="input">
+	<%= form.label :password_confirmation %>
+	<%= form.password_field :password_confirmation, :class => 'text-input small-input', :placeholder => "Password Confirmation" %>
+</div>
+<div class="input">
+	<%= form.label :first_name %>
+	<%= form.text_field :first_name, :class => 'text-input small-input', :required => true, :placeholder => "First Name" %>
+</div>
+<div class="input">
+	<%= form.label :last_name %>
+	<%= form.text_field :last_name, :class => 'text-input small-input', :required => true, :placeholder => "Last Name" %>
+</div>
+
+
+<%= set_focus("user_email") %>

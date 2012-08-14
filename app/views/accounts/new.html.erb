@@ -1,0 +1,5 @@
+<%= form_for @user, :url => account_path do |f| %>
+	<%= render "form", :form => f %>
+	<%= f.submit "Sign up", :class => :button %>
+	
+<% end %>
