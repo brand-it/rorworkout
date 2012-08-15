@@ -5,8 +5,6 @@ class DoctorsController < ApplicationController
     store_location
   end
   
-
-  
   def show
     @doctor = current_user.doctors.find(params[:id])
     store_location
@@ -14,10 +12,14 @@ class DoctorsController < ApplicationController
   
   def edit
     @doctor = current_user.doctors.find(params[:id])
+    if @doctor.degrees.blank?
+      @doctor.degrees.build
+    end
   end
   
   def update
     @doctor = current_user.doctors.find(params[:id])
+
     if @doctor.update_attributes(params[:doctor])
       flash[:success] = "Doctor #{@doctor.name} has been updated"
       redirect_to back_or_default
@@ -29,10 +31,12 @@ class DoctorsController < ApplicationController
   
   def new
     @doctor = Doctor.new
+    @doctor.degrees.build
   end
   
   def create
     @doctor = Doctor.new(params[:doctor])
+    
     if @doctor.save
       flash[:success] = "Doctor #{@doctor.name} has been created"
       redirect_to doctor_path(@doctor)

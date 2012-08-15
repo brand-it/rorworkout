@@ -1,2 +1,12 @@
 <%= link_to "Edit", edit_doctor_path(@doctor) %>
-<%= debug @doctor %>
+<h2><%= @doctor.name %></h2>
+<div>
+	<h3>Degrees</h3>
+	<% @doctor.degrees.each do |degree| %>
+		<p>
+			Name: <%= degree.name %><br/>
+			School Name: <%= degree.school_name %>
+		</p>
+
+	<% end %>
+</div>

@@ -42,6 +42,10 @@ a:hover {
 }
 
 
+.field_with_errors {
+	color: red;
+}
+
 form {
 	width: 400px;
 	margin: auto;
@@ -156,6 +160,10 @@ form label {
 }
 
 #content h2 { margin: 0; }
+
+h3 a{
+	font-size: 10px;
+}
 
 #aside
 {

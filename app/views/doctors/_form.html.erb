@@ -20,4 +20,20 @@
 	<%= form.label :state %>
 	<%= form.select :state, us_states %>
 </div>
+
+<div class="nested_attribute">
+	<h3>Degrees <%= link_to "Add Degree", "", :id => :add_button, :remote => true %></h3>
+	<div class="clone">
+		<%= form.fields_for :degrees do |degree_field| %>
+			<div class="input">
+				<%= degree_field.label :name %>
+				<%= degree_field.text_field :name, :placeholder => "Name" %>
+			</div>
+			<div class="input">
+				<%= degree_field.label :school_name %>
+				<%= degree_field.text_field :school_name, :placeholder => "School Name" %>
+			</div>
+		<% end %>
+	</div>
+</div>
 <%= set_focus("doctor_name") %>

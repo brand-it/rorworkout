@@ -1,5 +1,4 @@
 <%= link_to "New", new_doctor_path %>
-<%= debug @doctors %>
 <table>
 	<thead>
 		<tr>
@@ -17,10 +16,11 @@
 				<tr>
 					<td><%= link_to doctor.name, doctor_path(doctor) %></td>
 					<td><%= doctor.address%></td>
-					<td><%= doctor.zip %>
+					<td><%= doctor.zip %></td>
+					<td><%= doctor.years_of_experience %></td>
+					<td><%= doctor.user.full_name %></td>
 				</tr>
 				
 			<% end %>
 		</tbody>
-		
 </table>
