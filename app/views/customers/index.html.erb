@@ -1,0 +1,20 @@
+<%= link_to "New", new_customer_path %>
+<table>
+	<thead>
+		<tr>
+			<th>
+				Customer Name
+			</th>
+			<th>Created By</th>
+		</tr>
+		</thead>
+		<tbody>
+			<% @customers.each do |customer| %>
+				<tr>
+					<td><%= link_to customer.full_name, customer_path(customer) %></td>
+					<td><%= customer.user.full_name %></td>
+				</tr>
+				
+			<% end %>
+		</tbody>
+</table>

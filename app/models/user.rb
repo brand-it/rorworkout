@@ -13,15 +13,7 @@ class User < ActiveRecord::Base
   after_create :setup
   
   has_many :doctors, :foreign_key => :created_by
-  
-  # Not used in this login keep if you want to use later.
-  # def create_using_auth(auth)
-  #    User.create(:email => auth['info']['email'], :first_name => auth['info']['first_name'], :last_name => auth['info']['last_name'], :password => auth['credentials']['token'], :password_confirmation => auth['credentials']['token'])  
-  # end
-  # 
-  # def facebook_img_uri
-  #   return "https://graph.facebook.com/" + self.facebook.uid.to_s + "/picture?type=large" unless self.facebook.blank?
-  # end
+  has_many :customers, :foreign_key => :created_by
   
   def self.find_by_name(name)
     clean_name = "%" + name + "%"
@@ -62,7 +54,7 @@ class User < ActiveRecord::Base
     unless first_name.nil? && last_name.nil?
       [first_name.capitalize,last_name.capitalize].join(' ')
     else
-      return nil
+      return "Unknow?"
     end
   end
   
