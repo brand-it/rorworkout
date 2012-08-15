@@ -1,0 +1,26 @@
+<%= link_to "New", new_doctor_path %>
+<%= debug @doctors %>
+<table>
+	<thead>
+		<tr>
+			<th>
+				Doctor Name
+			</th>
+			<th>Address</th>
+			<th>Zip</th>
+			<th>Years of Experience</th>
+			<th>Created By</th>
+		</tr>
+		</thead>
+		<tbody>
+			<% @doctors.each do |doctor| %>
+				<tr>
+					<td><%= link_to doctor.name, doctor_path(doctor) %></td>
+					<td><%= doctor.address%></td>
+					<td><%= doctor.zip %>
+				</tr>
+				
+			<% end %>
+		</tbody>
+		
+</table>

@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   
   after_create :setup
   
+  has_many :doctors, :foreign_key => :created_by
+  
   # Not used in this login keep if you want to use later.
   # def create_using_auth(auth)
   #    User.create(:email => auth['info']['email'], :first_name => auth['info']['first_name'], :last_name => auth['info']['last_name'], :password => auth['credentials']['token'], :password_confirmation => auth['credentials']['token'])  
@@ -68,7 +70,6 @@ class User < ActiveRecord::Base
   
   # Full activated account on create
   def setup
-    
     self.activate
     self.approve
     self.confirm

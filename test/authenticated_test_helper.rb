@@ -1,8 +1,12 @@
 module AuthenticatedTestHelper
+  
   # Sets the current user in the session from the user fixtures.
   def login_as(user)
+    activate_authlogic
     @user = FactoryGirl.create(user)
-    # puts "User " + @user.full_name + " Access level " + @user.access_level.to_s
+    # A little over kill to just be sure that the session information is set up correctly
+    UserSession.create! @user
+    # puts "User " + @user.full_name + " Access level " + @user.access_level.to_s + " Active " + @user.active.to_s
     # @request.session[:user_id] = user ? (user.is_a?(User) ? user.id : ) : nil
   end
 

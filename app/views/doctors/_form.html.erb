@@ -1,0 +1,23 @@
+<%= errors(@doctor) %>
+<div class="input">
+	<%= form.label :name %>
+	<%= form.text_field :name, :class => 'text-input small-input', :required => true, :placeholder => "Doctor Name", :maxlength => 35%>
+	
+</div>
+<div class="input">
+	<%= form.label :address %>
+	<%= form.text_field :address, :placeholder => "Address" %>
+</div>
+<div class="input">
+	<%= form.label :zip %>
+	<%= form.text_field :zip, :placeholder => "Zip", :maxlength => 5 %>
+</div>
+<div class="input">
+	<%= form.label :city %>
+	<%= form.text_field :city, :placeholder => "City" %>
+</div>
+<div class="input">
+	<%= form.label :state %>
+	<%= form.select :state, us_states %>
+</div>
+<%= set_focus("doctor_name") %>

@@ -2,6 +2,8 @@ Rorworkout::Application.routes.draw do
   
   resource :welcome
   
+  resources :doctors
+  
   
   # User login and other user related information
   resources :user_sessions

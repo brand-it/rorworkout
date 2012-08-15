@@ -18,6 +18,7 @@
 			<ul>
 				<li><%= link_to "Welcome", welcome_path %></li>
 				<% if logged_in? %>
+					<li><%= link_to "Doctors", doctors_path %>
 					<li><%= link_to current_user.full_name, account_path %></li>
 					<li><%= link_to "Logout", logout_path %>
 				<% else %>
