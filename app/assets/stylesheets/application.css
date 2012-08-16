@@ -193,7 +193,7 @@ h2 a {
 
 #footer
 {
-	clear: left;
+	clear: both;
 	background: #ccc;
 	text-align: right;
 	padding: 20px;
