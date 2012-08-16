@@ -16,6 +16,8 @@ end
 # Login System
 gem "authlogic"
 
+# Date validation for model Read more: https://github.com/adzap/validates_timeliness/
+gem 'validates_timeliness', '~> 3.0'
 
 group :development, :test do
   gem "turn"

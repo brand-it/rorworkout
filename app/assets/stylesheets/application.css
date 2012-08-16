@@ -20,6 +20,14 @@ a:hover {
 	color: gray;
 }
 
+table {
+	width: 100%;
+}
+
+table th {
+	background-color: lightblue;
+}
+
 .error-message {
 	color: #A1142D;
 	padding: 10px;
@@ -161,9 +169,16 @@ form label {
 
 #content h2 { margin: 0; }
 
-h3 a{
+h3 a {
 	font-size: 10px;
+	margin-left: 6px;
 }
+
+h2 a {
+	font-size: 12px;
+	margin-left: 6px;
+}
+
 
 #aside
 {

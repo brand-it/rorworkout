@@ -1,5 +1,5 @@
 class DoctorsController < ApplicationController
-  before_filter :require_user
+  before_filter :collaborator_authorized
   def index
     @doctors = current_user.doctors
     store_location

@@ -21,6 +21,9 @@
 	<%= form.label :last_name %>
 	<%= form.text_field :last_name, :class => 'text-input small-input', :required => true, :placeholder => "Last Name" %>
 </div>
-
+<div class="input">
+	<%= form.label :access_level %><br />
+	<%= form.select :access_level, access_level_types_for_select %>
+</div>
 
 <%= set_focus("user_email") %>

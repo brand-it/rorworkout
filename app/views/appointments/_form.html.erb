@@ -1,0 +1,19 @@
+<%= errors(@appointment) %>
+<div class="input">
+	<%= form.label :visit_date %>
+	<%= form.date_select :visit_date, :start_year => Time.now.year, :start_month => Time.now, :start_day => Time.now %>
+	
+</div>
+<div class="input">
+	<%= form.label :requires_reminder %>
+	<%= form.check_box :requires_reminder %>
+</div>
+<div class="input">
+	<%= form.label :reason_for_visit %>
+	<%= form.text_area :reason_for_visit %>
+</div>
+
+<div class="input">
+	<%= form.label :pet_id, "Select Pet" %>
+	<%= form.select :pet_id, pets_for_select(@customer.pets) %>
+</div>

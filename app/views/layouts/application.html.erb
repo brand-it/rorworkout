@@ -17,9 +17,14 @@
 			
 			<ul>
 				<li><%= link_to "Welcome", welcome_path %></li>
-				<% if logged_in? %>
+				<% if colaborator? %>
 					<li><%= link_to "Doctors", doctors_path %></li>
 					<li><%= link_to "Customers", customers_path %></li>
+				<% end %>
+				<% if client? %>
+					<li><%= link_to "My Appointments", my_appointments_path %></li>
+				<% end %>
+				<% if logged_in? %>
 					<li><%= link_to current_user.full_name, account_path %></li>
 					<li><%= link_to "Logout", logout_path %>
 				<% else %>

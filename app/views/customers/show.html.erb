@@ -1,1 +1,29 @@
-<h2><%= @customer.full_name %>
+
+<%= content_for :aside do %>
+	<h3>Customer Pets <%= link_to "New Pet", new_customer_pet_path(@customer) %></h3>
+	<div id="pets">
+		<% @customer.pets.each do |pet| %>
+			<h4><%= pet.name.camelcase %> <%= link_to "Edit", edit_customer_pet_path(@customer, pet) %></h4>
+			<div class="info">
+				<div>Weight: <%= pet.weight %></div>
+				<div>Age: <%= pet.age%></div>
+				<div>Breed: <%= pet.breed %></div>
+				<div>Type of Pet: <%= pet.type_of_pet %></div>
+				<div>Last Appointment: <%= format_last_appointment pet.appointments.last_appointment  %></div>
+			</div>
+		<% end %>
+	</div>
+<% end %>
+<h2><%= @customer.full_name.camelcase %><%= link_to "Edit Customer", edit_customer_path(@customer)%></h2>
+<div>
+	<h3>Appointments <%= link_to "new appointments", new_customer_appointment_path(@customer) %></h3>
+	<div id="appointments">
+		<% @customer.appointments.each do |appointment| %>
+			<h3><%= appointment.pet.name.camelcase unless appointment.pet.blank? %> <%= link_to "Edit Appointment", edit_customer_appointment_path(@customer, appointment) %></h3>
+			<div>Appointment Date: <%= appointment.visit_date %></div>
+			<div>Requires Reminder: <%= appointment.requires_reminder %></div>
+			<div>Reason For Visit: <p><%= appointment.reason_for_visit %></p></div>
+			
+		<% end %>
+	</div>
+</div>

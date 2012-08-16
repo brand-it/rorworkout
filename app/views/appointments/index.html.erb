@@ -1,0 +1,14 @@
+<h2>Appointments </h2>
+<div id="appointments">
+	<% current_user.customers.each do |customer| %>
+		
+		<% customer.appointments.each do |appointment| %>
+			<h3><%= appointment.pet.name.camelcase unless appointment.pet.blank? %> <%= link_to "Edit Appointment", edit_customer_appointment_path(customer, appointment) %></h3>
+			<div>Appointment Date: <%= appointment.visit_date %></div>
+			<div>Requires Reminder: <%= appointment.requires_reminder %></div>
+			<div>Reason For Visit: <p><%= appointment.reason_for_visit %></p></div>
+		<% end %>
+
+		
+	<% end %>
+</div>

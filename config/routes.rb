@@ -4,7 +4,12 @@ Rorworkout::Application.routes.draw do
   
   resources :doctors
   
-  resources :customers
+  match "/my_appointments" => "appointments#index", :as => "my_appointments"
+  
+  resources :customers do
+    resources :pets
+    resources :appointments
+  end
   
   
   # User login and other user related information

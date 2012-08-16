@@ -1,0 +1,22 @@
+<%= errors(@pet) %>
+<div class="input">
+	<%= form.label :name %>
+	<%= form.text_field :name, :class => 'text-input small-input', :required => true, :placeholder => "Pet Name", :maxlength => 35 %>
+	
+</div>
+<div class="input">
+	<%= form.label :type_of_pet %>
+	<%= form.select :type_of_pet, type_of_pets %>
+</div>
+<div class="input">
+	<%= form.label :age %>
+	<%= form.text_field :age, :placeholder => "Age", :maxlength => 35 %>
+</div>
+<div class="input">
+	<%= form.label :breed %>
+	<%= form.text_field :breed, :placeholder => "Breed", :maxlength => 35, :required => true %>
+</div>
+<div class="input">
+	<%= form.label :weight %>
+	<%= form.text_field :weight, :placeholder => "Weight", :maxlength => 35 %>
+</div>

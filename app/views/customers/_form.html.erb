@@ -8,3 +8,12 @@
 	<%= form.label :last_name %>
 	<%= form.text_field :last_name, :placeholder => "Last Name", :required => true %>
 </div>
+<div class="input">
+	<%= form.label :doctor_id, "Select Doctor" %>
+	<%= form.select :doctor_id, doctors_for_select(current_user.doctors) %>
+</div>
+
+<div class="input">
+	<%= form.label :user_id, "Select User" %>
+	<%= form.select :user_id, User.for_select %>
+</div>

@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   
   default_scope :limit => 100
   
-  attr_accessible :email, :password, :password_confirmation, :first_name, :last_name
+  attr_accessible :email, :password, :password_confirmation, :first_name, :last_name, :access_level
   acts_as_authentic
   
   validates_uniqueness_of :email
@@ -13,7 +13,9 @@ class User < ActiveRecord::Base
   after_create :setup
   
   has_many :doctors, :foreign_key => :created_by
-  has_many :customers, :foreign_key => :created_by
+  # This is was going to tell me which customer is the real customer according to the login info
+  has_many :customers
+  has_many :my_customers, :foreign_key => :created_by, :class_name => Customer
   
   def self.find_by_name(name)
     clean_name = "%" + name + "%"
@@ -46,8 +48,8 @@ class User < ActiveRecord::Base
   end
   
   def self.for_select
-    users = self.find_admin_clients
-    users.collect {|u| [ u.full_name, u.id ] }
+    users = self.all
+    users.collect {|u| [ u.email, u.id ] }
   end
   
   def full_name

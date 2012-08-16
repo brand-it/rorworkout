@@ -7,11 +7,26 @@ class AccountsController < ApplicationController
     @user = User.new
   end
   
+  def edit
+    @user = current_user
+  end
+  
+  def update
+    @user = current_user
+    if @user.update_attributes(params[:user])
+      flash[:success] = "Your account has been updated"
+      redirect_to account_path
+    else
+      flash[:error] = "We could not update account"
+      render :action => :edit
+    end
+  end
+  
   def create
     @user = User.new(params[:user])
     if @user.save
       flash[:success] = "Your account has been created and is ready to use"
-      redirect_to back_or_default
+      redirect_to login_path
     else
       flash[:error] = "Sorry some information is missing please login to user that has access"
       render :action => :new

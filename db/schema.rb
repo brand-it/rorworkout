@@ -11,12 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120815230019) do
+ActiveRecord::Schema.define(:version => 20120815232129) do
+
+  create_table "appointments", :force => true do |t|
+    t.date     "visit_date"
+    t.boolean  "requires_reminder", :default => true
+    t.text     "reason_for_visit"
+    t.integer  "customer_id"
+    t.integer  "pet_id"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+  end
 
   create_table "customers", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
+    t.integer  "user_id"
     t.integer  "created_by"
+    t.integer  "doctor_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -39,6 +51,17 @@ ActiveRecord::Schema.define(:version => 20120815230019) do
     t.integer  "created_by"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+  end
+
+  create_table "pets", :force => true do |t|
+    t.string   "name"
+    t.string   "type_of_pet"
+    t.string   "breed"
+    t.integer  "age"
+    t.integer  "weight"
+    t.integer  "customer_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

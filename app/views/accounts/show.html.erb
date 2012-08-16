@@ -1,1 +1,5 @@
-<%= debug @user %>
+<%= link_to "Edit", edit_account_path %>
+<h2><%= @user.full_name %></h2>
+<div><%= @user.email %></div>
+
+<div>Access Level <%= access_level_to_words @user.access_level %></div>

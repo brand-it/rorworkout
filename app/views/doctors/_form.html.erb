@@ -21,6 +21,11 @@
 	<%= form.select :state, us_states %>
 </div>
 
+<div class="input">
+	<%= form.label :years_of_experience %>
+	<%= form.text_field :years_of_experience, :placeholder => "Years of Experience" %>
+</div>
+
 <div class="nested_attribute">
 	<h3>Degrees <%= link_to "Add Degree", "", :id => :add_button, :remote => true %></h3>
 	<div class="clone">
